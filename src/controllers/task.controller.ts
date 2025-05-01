@@ -5,6 +5,7 @@ import redisClient from '../utils/redis';
 
 export const createTask = async (req: Request, res: Response) => {
   try {
+    const authInfo = req.authInfo;
     const task = await Task.create(req.body);
     await redisClient.del('tasks:all'); // Invalidate cache
     res.status(201).json(task);
@@ -16,7 +17,10 @@ export const createTask = async (req: Request, res: Response) => {
 export const getAllTasks = async (req: Request, res: Response) => {
   try {
     const cached = await redisClient.get('tasks:all');
-    if (cached) return res.json(JSON.parse(cached));
+    if (cached)  { 
+      res.json(JSON.parse(cached));
+      return;
+    }
 
     const query: any = {};
     if (req.query.status) query.status = req.query.status;
@@ -34,7 +38,7 @@ export const getAllTasks = async (req: Request, res: Response) => {
 export const getTask = async (req: Request, res: Response) => {
   try {
     const task = await Task.findById(req.params.id).populate('assignedTo');
-    if (!task) return res.status(404).json({ message: 'Task not found' });
+    if (!task) {  res.status(404).json({ message: 'Task not found' }) ; return; };
     res.json(task);
   } catch (err) {
     res.status(500).json({ message: 'Error fetching task', error: err });
@@ -44,7 +48,7 @@ export const getTask = async (req: Request, res: Response) => {
 export const updateTask = async (req: Request, res: Response) => {
   try {
     const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!task) return res.status(404).json({ message: 'Task not found' });
+    if (!task) { res.status(404).json({ message: 'Task not found' }); return;};
     await redisClient.del('tasks:all');
     res.json(task);
   } catch (err) {
@@ -55,7 +59,7 @@ export const updateTask = async (req: Request, res: Response) => {
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);
-    if (!task) return res.status(404).json({ message: 'Task not found' });
+    if (!task) {  res.status(404).json({ message: 'Task not found' }); return;};
     await redisClient.del('tasks:all');
     res.json({ message: 'Task deleted' });
   } catch (err) {
