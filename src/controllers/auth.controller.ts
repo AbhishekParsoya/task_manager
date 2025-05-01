@@ -19,13 +19,12 @@ export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    console.log("🚀 ~ auth.controller.ts:24 ~ login ~ user:", user)
     if (!user || !(await bcrypt.compare(password, user.password))) {
       res.status(401).json({ message: 'Invalid credentials' });
       return;
     }
     const token = jwt.sign(
-      { id: user._id, role: user.role },
+      { userId: user._id, role: user.role },
       process.env.JWT_SECRET!,
       { expiresIn: '1h' }
     );

@@ -6,8 +6,8 @@ export interface ITask extends Document {
   description: string;
   status: 'pending' | 'in-progress' | 'completed';
   dueDate: Date;
-  assignedTo: mongoose.Schema.Types.ObjectId;
-  createdBy: mongoose.Schema.Types.ObjectId;
+  assignedTo: String;
+  createdBy: string;
 }
 
 const taskSchema = new Schema<ITask>(
@@ -20,8 +20,8 @@ const taskSchema = new Schema<ITask>(
     description: { type: String },
     status: { type: String, enum: ['pending', 'in-progress', 'completed'], default: 'pending' },
     dueDate: { type: Date },
-    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    assignedTo: { type: String, ref: 'User' },
+    createdBy: { type: String, ref: 'User' },
   },
   { timestamps: true }
 );
