@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
-    "types": [],
+    "types": ["node", "express"],
     "typeRoots": ["./node_modules/@types", "./types"],
   },
   "include": ["src", "types"],
