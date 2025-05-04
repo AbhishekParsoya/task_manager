@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "_id": "u_6813a0fa52c3ba63823327e4",
+      "name": "Admin",
+      "email": "abmin@gmail.com",
+      "password": "$2b$10$OFQNsj6DZ2l..vFc4cPyleXsKqmg8lagM7WSmwm/FRpOrK0vZU.dm",
+      "role": "user",
+      "createdAt": "2025-05-01T16:27:38.745Z",
+      "updatedAt": "2025-05-01T16:27:38.745Z"
+    },
+    {
+      "_id": "u_6813a12552c3ba63823327e8",
+      "name": "Admin2",
+      "email": "abmin2@gmail.com",
+      "password": "$2b$10$7bmaO7KqXq2DQBWXMIGaGOLXth472R.3VNhciaSP62pERSlGuGRgq",
+      "role": "admin",
+      "createdAt": "2025-05-01T16:28:21.603Z",
+      "updatedAt": "2025-05-01T16:28:21.603Z"
+    },
+    {
+      "_id": "u_6813a37640abd3eee12f4a93",
+      "name": "Admin123",
+      "email": "admin123@gmail.com",
+      "password": "$2b$10$z1NKvlINGGetQGpTH8jB.eq2GZnO.UhdU8Hxtxa.GFjUUe/J73W3m",
+      "role": "admin",
+      "createdAt": "2025-05-01T16:38:14.018Z",
+      "updatedAt": "2025-05-01T16:38:14.018Z"
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "ta_6813b5dd0f6b00a9bc756947",
+      "title": "Design database schema",
+      "description": "Draft collections and relationships for core modules",
+      "status": "completed",
+      "dueDate": "2025-04-20T23:59:59.000Z",
+      "assignedTo": "u_6813a37640abd3eee12f4a93",
+      "createdAt": "2025-05-01T17:56:45.116Z",
+      "updatedAt": "2025-05-01T17:56:45.116Z"
+    },
+    {
+      "_id": "ta_6813b6840f6b00a9bc75694b",
+      "title": "Desdfdgndfgdign",
+      "description": "Draft Nosdnsdsfndnfsf dfjgjdn",
+      "status": "completed",
+      "dueDate": "2025-04-22T23:59:59.000Z",
+      "assignedTo": "u_6813a65ab0271486fa2ccbd4",
+      "createdAt": "2025-05-01T17:59:32.250Z",
+      "updatedAt": "2025-05-01T18:18:55.723Z"
+    }
+  ]
+}
