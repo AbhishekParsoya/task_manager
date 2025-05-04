@@ -1,0 +1,550 @@
+{
+	"info": {
+		"_postman_id": "9450cbfd-5ea9-48ce-a4ba-529fdfba8887",
+		"name": "Task_manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25088427"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Abhishek \",\n    \"email\": \"abhi1233@gmail.com\",\n    \"password\": \"@abhi123\",\n    \"role\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abhishek \",\n    \"email\": \"abhi12333@gmail.com\",\n    \"password\": \"@abhi123\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User registered\",\n    \"user\": {\n        \"name\": \"Abhishek \",\n        \"email\": \"abhi12333@gmail.com\",\n        \"password\": \"$2b$10$IjC9OXBYFVnrs3K4aPyxCeDUysxGbzmAksuj7QetH/SiHgBz1EqRW\",\n        \"role\": \"admin\",\n        \"_id\": \"u_68172a1a7100b9bbfae156ed\",\n        \"createdAt\": \"2025-05-04T08:49:30.971Z\",\n        \"updatedAt\": \"2025-05-04T08:49:30.971Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin123@gmail.com\",\n    \"password\": \"@Admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin123@gmail.com\",\n    \"password\": \"@Admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"admin123@gmail.com\",\n    \"_id\": \"u_6813a37640abd3eee12f4a93\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1XzY4MTNhMzc2NDBhYmQzZWVlMTJmNGE5MyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjM0ODU5OSwiZXhwIjoxNzQ2MzUyMTk5fQ.8-rZymPBUZZJ0vQb0TYxeZ039t5gkeNCsPo4GQ50DDk\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Desdfdgndfgdign\",\n    \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n    \"status\": \"in-progress\",\n    \"dueDate\": \"2025-04-21T23:59:59Z\",\n    \"assignedTo\": \"u_6813a65ab0271486fa2ccbd4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create task",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Desdfdgndfgdign\",\n    \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n    \"status\": \"in-progress\",\n    \"dueDate\": \"2025-04-21T23:59:59Z\",\n    \"assignedTo\": \"u_6813a65ab0271486fa2ccbd4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task created\",\n    \"result\": {\n        \"title\": \"Desdfdgndfgdign\",\n        \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n        \"status\": \"in-progress\",\n        \"dueDate\": \"2025-04-21T23:59:59.000Z\",\n        \"assignedTo\": \"u_6813a37640abd3eee12f4a93\",\n        \"_id\": \"ta_6815bcf67100b9bbfae156de\",\n        \"createdAt\": \"2025-05-03T06:51:34.104Z\",\n        \"updatedAt\": \"2025-05-03T06:51:34.104Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "pending",
+							"disabled": true
+						},
+						{
+							"key": "dueDate",
+							"value": "2025-04-22T23:59:59.000Z",
+							"disabled": true
+						},
+						{
+							"key": "assigned",
+							"value": "Admin123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List tasks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending",
+									"disabled": true
+								},
+								{
+									"key": "dueDate",
+									"value": "2025-04-22T23:59:59.000Z",
+									"disabled": true
+								},
+								{
+									"key": "assigned",
+									"value": "Admin123",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successfully All The Tasks \",\n    \"result\": [\n        {\n            \"_id\": \"ta_6813b5dd0f6b00a9bc756947\",\n            \"title\": \"Design database schema\",\n            \"description\": \"Draft collections and relationships for core modules\",\n            \"status\": \"completed\",\n            \"dueDate\": \"2025-04-20T23:59:59.000Z\",\n            \"assignedTo\": {\n                \"_id\": \"u_6813a37640abd3eee12f4a93\",\n                \"name\": \"Admin123\",\n                \"email\": \"admin123@gmail.com\",\n                \"password\": \"$2b$10$z1NKvlINGGetQGpTH8jB.eq2GZnO.UhdU8Hxtxa.GFjUUe/J73W3m\",\n                \"role\": \"admin\",\n                \"createdAt\": \"2025-05-01T16:38:14.018Z\",\n                \"updatedAt\": \"2025-05-01T16:38:14.018Z\",\n                \"__v\": 0\n            },\n            \"createdAt\": \"2025-05-01T17:56:45.116Z\",\n            \"updatedAt\": \"2025-05-01T17:56:45.116Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"ta_6813b6840f6b00a9bc75694b\",\n            \"title\": \"Desdfdgndfgdign\",\n            \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n            \"status\": \"completed\",\n            \"dueDate\": \"2025-04-22T23:59:59.000Z\",\n            \"assignedTo\": {\n                \"_id\": \"u_6813a65ab0271486fa2ccbd4\",\n                \"name\": \"ABhi\",\n                \"email\": \"abhi123@gmail.com\",\n                \"password\": \"$2b$10$D4SdjdpjrOZm/7XxIP3w7eD3bZQgDN0WGH7l.usB9qxmGgFKk3ssG\",\n                \"role\": \"user\",\n                \"createdAt\": \"2025-05-01T16:50:34.662Z\",\n                \"updatedAt\": \"2025-05-01T16:50:34.662Z\",\n                \"__v\": 0\n            },\n            \"createdAt\": \"2025-05-01T17:59:32.250Z\",\n            \"updatedAt\": \"2025-05-01T18:18:55.723Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get task data ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/{{taskId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"{{taskId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get task data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/task/{{taskId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"{{taskId}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/{{taskId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"{{taskId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Task",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/task/{{taskId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"{{taskId}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Task ",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1XzY4MTNhMzc2NDBhYmQzZWVlMTJmNGE5MyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjI1NTA2NCwiZXhwIjoxNzQ2MjU4NjY0fQ.UdMj8KAyIVZj3K9qgdS4RE0bB-Xi9G1WtjOoMl95DkE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Desdfdgndfgdign\",\n    \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n    \"status\": \"completed\",\n    \"dueDate\": \"2025-04-22T23:59:59Z\",\n    \"assignedTo\": \"u_6813a65ab0271486fa2ccbd4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/task/{{taskId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"{{taskId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit Task",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1XzY4MTNhMzc2NDBhYmQzZWVlMTJmNGE5MyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjI1NTA2NCwiZXhwIjoxNzQ2MjU4NjY0fQ.UdMj8KAyIVZj3K9qgdS4RE0bB-Xi9G1WtjOoMl95DkE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Desdfdgndfgdign\",\n    \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n    \"status\": \"completed\",\n    \"dueDate\": \"2025-04-22T23:59:59Z\",\n    \"assignedTo\": \"u_6813a65ab0271486fa2ccbd4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/task/{{taskId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"task",
+								"{{taskId}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successfully Updated The Task\",\n    \"result\": {\n        \"_id\": \"ta_6815bcf67100b9bbfae156de\",\n        \"title\": \"Desdfdgndfgdign\",\n        \"description\": \"Draft Nosdnsdsfndnfsf dfjgjdn\",\n        \"status\": \"completed\",\n        \"dueDate\": \"2025-04-22T23:59:59.000Z\",\n        \"assignedTo\": \"u_6813a65ab0271486fa2ccbd4\",\n        \"createdAt\": \"2025-05-03T06:51:34.104Z\",\n        \"updatedAt\": \"2025-05-03T06:54:39.679Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		}
+	]
+}
